@@ -1,0 +1,5 @@
+vendor/
+dbConnect.php
+Thumbs.db
+desktop.ini
+*.log
