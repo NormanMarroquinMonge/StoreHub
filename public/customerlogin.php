@@ -37,19 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         } else {
             // Password is wrong
-            echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('error-message').style.display = 'block';
-                });
-            </script>";
+            $loginError = true;
         }
     } else {
         // First/last name combination doesn't exist
-        echo "<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.getElementById('error-message').style.display = 'block';
-            });
-        </script>";
+            $loginError = true;
     }
 }
 ?>
@@ -57,132 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Customer Login</title>
-    <style>
-        /* General body styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Same as index page color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        /* Centered rectangle */
-        .login-container {
-            background-color: #e6e6e6;
-            width: 400px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-        }
-
-        /* Title at the top */
-        .login-container h2 {
-            text-align: center;
-            margin: 0;
-            padding-bottom: 15px;
-        }
-
-        /* Form styling */
-        .form-input {
-            margin-bottom: 20px;
-            width: 95%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-input:focus {
-            border-color: #007bff;
-            outline: none;
-        }
-
-        /* Login button style (same as index page) */
-        .login-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            width: 100%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .login-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Error message styling */
-        #error-message {
-            display: none;
-            color: red;
-            text-align: center;
-            margin-bottom: 20px; /* Space between the message and form */
-            padding: 15px;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            border-radius: 5px;
-            font-weight: bold;
-            animation: fadeInOut 5s forwards; /* Forward makes it stop at 100% opacity */
-        }
-
-        /* Animation for fading in and out */
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-            30% {
-                opacity: 1;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Sign up section styling */
-        .signup-container {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .signup-text {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .signup-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
-        .signup-button:hover {
-            background-color:  #0056b3;
-        }
-
-    </style>
 </head>
-<body>
+<body class = "login-layout">
     <div class="login-container">
         <h2>Customer Login</h2>
 
         <!-- Error message -->
-        <div id="error-message">Incorrect first name, last name, or password.</div>
+        <?php if (isset($loginError) && $loginError): ?>
+        <div id="error-message" style="display: block;">
+            Incorrect first name, last name, or password.
+        </div>
+        <?php endif; ?>
 
         <form method="POST"> <!-- Adjust action based on PHP backend -->
             <div>

@@ -1,0 +1,257 @@
+/* Basic body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/*--- Index page layout ---*/
+.index-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*--- login page Layout ---*/
+.login-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Carousel styling for logos */
+.logos {
+    overflow: hidden;
+    padding: 20px 0;
+    background: #e0e0e0;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+/* Gradient effect at edges */
+.logos:before,
+.logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+/* Animation effect */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Reverse animation for bottom carousel */
+@keyframes slide-reverse {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Logo images styling */
+.logos-slide {
+    display: inline-block;
+    animation: 50s slide infinite linear;
+}
+
+/* Apply the reverse animation to the bottom carousel */
+.logos.bottom .logos-slide {
+    animation: 50s slide-reverse infinite linear;
+    padding-bottom: 10px;
+}
+
+.logos-slide img {
+    height: 150px;
+    width: 300px;
+    margin: 0;
+}
+
+/* Container with text and buttons */
+.container {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.message {
+    font-size: 2em;
+    color: #333;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s;
+}
+
+.login-as {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.8s;
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 1.2s;
+    margin-top: 15px;
+}
+
+.button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Centered rectangle */
+.login-container {
+    background-color: #e6e6e6;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Title at the top */
+.login-container h2 {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+/* Form styling */
+.form-input {
+    margin-bottom: 20px;
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Login button style (same as index page) */
+.login-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Error message styling */
+#error-message {
+    display: none;
+    color: red;
+    text-align: center;
+    margin-bottom: 20px; /* Space between the message and form */
+    padding: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: fadeInOut 5s forwards; /* Forward makes it stop at 100% opacity */
+}
+
+/* Animation for fading in and out */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sign up section styling */
+.signup-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-text {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.signup-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.signup-button:hover {
+    background-color:  #0056b3;
+}
