@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbConnect.php';
+require_once '../dbConnect.php';
 
 // Assuming customer ID is stored in session after login
 $customer_ID = $_SESSION['customer_ID'];

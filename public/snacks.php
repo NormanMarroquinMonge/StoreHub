@@ -8,7 +8,7 @@ if (!isset($_SESSION['customer_loggedIn']) || $_SESSION['customer_loggedIn'] !==
     exit();
 }
 
-require_once 'dbConnect.php';
+require_once '../dbConnect.php';
 $imageBasePath = 'images/sna'; // Base path for the images folder
 $int = 1; // Start counter for images
 

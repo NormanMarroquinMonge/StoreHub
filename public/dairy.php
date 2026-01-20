@@ -1,6 +1,6 @@
 <?php
 session_start();
-$currentPage = 'bakery';
+$currentPage = 'dairy';
 // Check if the user is logged in as a customer
 if (!isset($_SESSION['customer_loggedIn']) || $_SESSION['customer_loggedIn'] !== true) {
     // Redirect to customer login page
@@ -8,7 +8,7 @@ if (!isset($_SESSION['customer_loggedIn']) || $_SESSION['customer_loggedIn'] !==
     exit();
 }
 
-require_once 'dbConnect.php';
+require_once '../dbConnect.php';
 
 /*****************************************************************
 retrieves the number of items in a customers cart.
@@ -194,7 +194,7 @@ $_SESSION['cart_item_count'] = $cart_item_count;
           While loop iterates through entire list to create containers
           for each product.
           *******************************************************/
-          $query = 'SELECT * FROM products WHERE category_ID = 5';
+          $query = 'SELECT * FROM products WHERE category_ID = 3';
           $stmt = $dbConn->prepare($query);
           $stmt->execute();
           while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbConnect.php';
+require_once '../dbConnect.php';
 
 // Get the cart ID from the session
 $cart_ID = $_SESSION['cart_ID'];
@@ -161,7 +161,7 @@ $_SESSION['cart_item_count'] = $cart_item_count;
             padding: 20px;
             border-right: 1px solid #ddd;
         }
-    
+
         .cart-item p {
             margin: 0;
             font-size: 16px;

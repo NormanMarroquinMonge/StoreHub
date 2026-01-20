@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dbConnect.php';
+require_once '../dbConnect.php';
 
 if (!isset($_SESSION['customer_loggedIn']) || $_SESSION['customer_loggedIn'] !== true) {
     echo json_encode(['error' => 'User not logged in']);

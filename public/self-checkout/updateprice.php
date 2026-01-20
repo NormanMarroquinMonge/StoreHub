@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../dbConnect.php';
+require_once '../../dbConnect.php';
 
 $cart_ID = $_SESSION['cart_ID'];
 
