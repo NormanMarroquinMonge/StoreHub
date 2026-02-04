@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once 'dbConnect.php';
+  require_once '../dbConnect.php';
 
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -58,70 +58,10 @@
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
+     <link rel="stylesheet" href="css/style.css">
      <title>Customer Signup</title>
-     <style>
-
-     /* General body styles */
-     body {
-         font-family: Arial, sans-serif;
-         background-color: #f0f0f0; /* Same as index page color */
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         margin: 0;
-     }
-
-     /* Centered rectangle */
-     .login-container {
-         background-color: #e6e6e6;
-         width: 400px;
-         padding: 20px;
-         border-radius: 10px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         display: grid;
-         grid-template-rows: auto 1fr auto;
-     }
-
-     /* Title at the top */
-     .login-container h2 {
-         text-align: center;
-         margin: 0;
-         padding-bottom: 15px;
-     }
-
-     /* Form styling */
-     .form-input {
-         margin-bottom: 20px;
-         width: 95%;
-         padding: 10px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-     }
-
-     .form-input:focus {
-         border-color: #007bff;
-         outline: none;
-     }
-
-     /* Login button style (same as index page) */
-     .login-button {
-         background-color: #007bff;
-         color: white;
-         border: none;
-         padding: 10px;
-         border-radius: 5px;
-         width: 100%;
-         cursor: pointer;
-         transition: background-color 0.3s;
-     }
-
-     .login-button:hover {
-         background-color: #0056b3;
-     }
-    </style>
    </head>
-   <body>
+   <body class = "login-layout">
      <div class="login-container">
          <h2>Customer Signup</h2>
 
@@ -136,7 +76,7 @@
                  <input type="password" name="password" placeholder="Enter Password" class="form-input" required>
              </div>
              <div>
-                 <button type="submit" class="login-button">Sign in</button>
+                 <button type="submit" class="login-button">Create Account</button>
              </div>
          </form>
      </div>
