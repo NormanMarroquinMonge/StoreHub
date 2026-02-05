@@ -87,154 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_account'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Customer Account</title>
-    <style>
-  body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 50px 0 0;
-  }
-
-      /* Navigation menu styles */
-      .nav-menu {
-          background-color: #007bff;
-          width: 100%;
-          padding: 15px 0;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          position: fixed; /* Keeps the navigation bar fixed */
-          top: 0; /* Positions it at the top */
-          left: 0;
-          z-index: 1000;
-      }
-
-      .nav-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-      }
-
-      .nav-link {
-          color: white;
-          text-decoration: none;
-          padding: 10px 20px;
-          border-radius: 5px;
-          transition: background-color 0.3s;
-          font-weight: bold;
-      }
-
-      .nav-link:hover {
-          background-color: #0056b3;
-      }
-
-      .nav-link.active {
-        background-color: #0056b3;
-      }
-
-      .account-container {
-          display: flex;
-          flex-direction: column;
-          width: 80%;
-          max-width: 1200px;
-          margin: 100px auto;
-          padding: 20px;
-          background-color: #fff;
-          border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .account-header {
-          text-align: center;
-          margin-bottom: 20px;
-      }
-
-      .account-header h1 {
-          margin: 0;
-          font-size: 24px;
-      }
-
-      .account-info,
-      .cart-info {
-          margin-bottom: 30px;
-      }
-
-      .account-info h2,
-      .cart-info h2 {
-          font-size: 20px;
-          margin-bottom: 10px;
-      }
-
-      .account-info p,
-      .cart-info p {
-          font-size: 16px;
-          margin: 5px 0;
-      }
-
-      .form-group {
-          margin-bottom: 15px;
-      }
-
-      input[type="text"], input[type="number"] {
-          width: 100%;
-          padding: 10px;
-          margin-top: 5px;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-      }
-
-      .update-btn {
-          background-color: #007bff;
-          color: white;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-      }
-
-      .update-btn:hover {
-          background-color: #0056b3;
-      }
-
-      .cart-btn {
-          background-color: #007bff;
-          color: white;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-      }
-
-      .cart-btn:hover {
-          background-color: #0056b3;
-      }
-
-      .cart-icon {
-        width: 50px;  /* Set the width of the icon */
-        height: auto; /* Keep aspect ratio */
-        display: inline-block;
-        position: relative; /* Allows positioning of the count badge */
-      }
-
-      .cart-item-count {
-        position: absolute;
-        top: 10px;  /* Adjust this to position the number */
-        right: 200px; /* Adjust this to position the number */
-        background-color: red;  /* Background color of the badge */
-        color: white; /* Text color */
-        border-radius: 50%;
-        width: 20px;  /* Width of the badge */
-        height: 20px; /* Height of the badge */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;  /* Adjust font size */
-        font-weight: bold; /* Optional, to make the number bold */
-      }
-  </style>
 </head>
-<body>
+<body class="account-layout">
   <?php include 'customerNav.php'; ?>
 
 <div class="account-container">
@@ -278,8 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_account'])) {
             <button type="submit" class="cart-btn">Go to Cart</button>
         </form>
     </div>
-
 </div>
-
 </body>
 </html>
