@@ -31,7 +31,7 @@ console.log("Total Price: ", totalPrice);
                   showSuccessCard();  // Call function to show UI feedback
                   document.querySelector(".cart-items").innerHTML = "<p>Your cart is empty.</p>";
                   document.querySelector(".cart-item-count").textContent = "0";
-                  ocument.querySelector(".cart-summary p").innerHTML = "<strong>Total Price:</strong> $0.00";
+                  document.querySelector(".cart-summary p").innerHTML = "<strong>Total Price:</strong> $0.00";
                 }
                 })
                 .catch(error => console.error('Error:', error));
