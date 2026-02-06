@@ -177,7 +177,7 @@
         //header("Location: employeelogin.php");
     //}
     include "employeeNav.html";
-    include 'dbConnect.php';
+    include '../dbConnect.php';
     $query ="SELECT order_history.order_ID, order_history.customer_ID, order_history.sale_ID, products.name AS product_name
     FROM order_history JOIN sales ON order_history.sale_ID = sales.sale_ID JOIN cart_items ON
     sales.cart_item_ID = cart_items.cart_item_ID JOIN

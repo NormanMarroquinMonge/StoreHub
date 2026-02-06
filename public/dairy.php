@@ -72,6 +72,6 @@ $_SESSION['cart_item_count'] = $cart_item_count;
        </div>
      </div>
        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-       <script src="JS/app.js"></script>
+       <script src="JS/cart.js"></script>
 </body>
 </html>

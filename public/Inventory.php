@@ -5,10 +5,7 @@ if (!isset($_SESSION['employee_ID'])) {
     exit();
 }
 // Database connection settings
-$host = '100.15.171.64';
-$dbname = 'storeHub';
-$username = 'tim';
-$password = '13';
+include '../dbConnect.php';
 
 
 // Establish the database connection
@@ -21,7 +18,6 @@ if ($conn->connect_error) {
 
 // Add or update item
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
-    $inventory_ID = $_POST['inventory_ID'];
     $name = $_POST['name'];
     $price = $_POST['price'];
     $brand = $_POST['brand'];
@@ -45,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
         // Move the uploaded image to the images folder
         if (move_uploaded_file($imageTmpName, $imagePath)) {
             // If successful, insert the product into the database, including the image path
-            $product_sql = "INSERT INTO products (product_ID, name, price, brand, category_ID, image_path)
-                            VALUES (?, ?, ?, ?, ?, ?)
+            $product_sql = "INSERT INTO products (name, price, brand, category_ID, image_path)
+                            VALUES (?, ?, ?, ?, ?)
                             ON DUPLICATE KEY UPDATE
                             name = VALUES(name),
                             price = VALUES(price),
@@ -58,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
             if (!$stmt_product) {
                 die("Error preparing product statement: " . $conn->error);
             }
-              $stmt_product->bind_param("isdsis", $inventory_ID, $name, $price, $brand, $category_ID, $imagePath);
+              $stmt_product->bind_param("sdsis", $name, $price, $brand, $category_ID, $imagePath);
 
               if (!$stmt_product->execute()) {
                   die("Error inserting into products: " . $stmt_product->error);
               }
-
+              $new_product_id = $conn->insert_id;
             echo "Product added successfully!";
               $stmt_product->close();
         } else {
@@ -72,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
     } else {
         echo "No image selected or there was an error uploading.";
     }//End of image file check
+
 
 
     // Insert or update inventory
@@ -86,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
         die("Error preparing inventory statement: " . $conn->error);
     }
 
-    $stmt_inventory->bind_param("iis", $inventory_ID, $quantity, $last_restock);
+    $stmt_inventory->bind_param("iis",$new_product_id, $quantity, $last_restock);
 
     if (!$stmt_inventory->execute()) {
         die("Error inserting into inventory: " . $stmt_inventory->error);
@@ -179,8 +176,6 @@ if ($result === false) {
     <!-- Add Item Form -->
     <h2>Add or Update Item</h2>
     <form method="POST" enctype="multipart/form-data">
-        <label for="inventory_ID">Inventory ID:</label>
-        <input type="number" id="inventory_ID" name="inventory_ID" required><br>
 
         <label for="name">Product Name:</label>
         <input type="text" id="name" name="name" required><br>
@@ -242,7 +237,7 @@ if ($result === false) {
     <table>
         <thead>
             <tr>
-                <th>Inventory ID</th>
+                <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Brand</th>

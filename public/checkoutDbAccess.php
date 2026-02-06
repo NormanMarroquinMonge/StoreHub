@@ -6,7 +6,7 @@
     <input type="hidden" name="cartID" value="<?php echo $cartID; ?>" />
 </form>
 <?php
-include 'dbConnect.php';
+include '../dbConnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $item = $_POST['userInput'];
     $itemID = intval($item);

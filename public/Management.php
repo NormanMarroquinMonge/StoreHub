@@ -5,10 +5,7 @@ if (!isset($_SESSION['employee_ID'])) {
     exit();
 }
 // Establish database connection
-$host = '100.15.171.64';
-$dbname = 'storeHub';
-$username = 'tim';
-$password = '13';
+require_once '../dbConnect.php';
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -45,77 +42,33 @@ $conn->close();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Management</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            margin-top: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Employee Management</h1>
+  <?php include 'employeeNav.html'; ?>
+  <div class="manager-container">
+  <h1 class="manager-header">Employee Management</h1>
 
-        <!-- Employee Creation Form -->
-        <form method="POST">
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
+  <form method="POST" class="manager-form">
+      <label for="fname" class="manager-label">First Name:</label>
+      <input type="text" id="fname" name="fname" class="manager-input" required>
 
-            <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required>
+      <label for="lname" class="manager-label">Last Name:</label>
+      <input type="text" id="lname" name="lname" class="manager-input" required>
 
-            <label for="role">Role:</label>
-            <input type="text" id="role" name="role" required>
+      <label for="role" class="manager-label">Role:</label>
+      <input type="text" id="role" name="role" class="manager-input" required>
 
-            <label for="salary">Salary:</label>
-            <input type="number" step="0.01" id="salary" name="salary" required>
+      <label for="salary" class="manager-label">Salary:</label>
+      <input type="number" step="0.01" id="salary" name="salary" class="manager-input" required>
 
-            <label for="password">Password:</label>
-            <input type="text" id="password" name="password" required>
+      <label for="password" class="manager-label">Password:</label>
+      <input type="password" id="password" name="password" class="manager-input" required>
 
-            <button type="submit" name="create">Add Employee</button>
-        </form>
-    </div>
+      <button type="submit" name="create" class="manager-button">Add Employee</button>
+  </form>
+</div>
 </body>
 </html>
