@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             let cartItemId = this.getAttribute("data-item-id");
 
-            fetch("/COSC640 Project/self-checkout/remove_item.php", {
+            fetch("/COSC640 Project/MYSQL-Version/self-checkout/remove_item.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.querySelector(".cart-item-count").textContent = data.new_cart_count;
 
                     // Fetch the updated total price
-                    fetch("/COSC640 Project/self-checkout/updateprice.php")
+                    fetch("/COSC640 Project/MYSQL-Version/self-checkout/updateprice.php")
                     .then(response => response.json())
                     .then(updatedData => {
                       console.log("Updated data from updateprice.php:", updatedData);
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateQuantity(itemId, action, controlElement) {
-      fetch("/COSC640 Project/self-checkout/update_quantity.php", {
+      fetch("/COSC640 Project/MYSQL-Version/self-checkout/update_quantity.php", {
           method: "POST",
           headers: {
               "Content-Type": "application/json"
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
               controlElement.querySelector(".item-quantity").textContent = data.new_quantity;
 
               // Recalculate total
-              fetch("/COSC640 Project/self-checkout/updateprice.php")
+              fetch("/COSC640 Project/MYSQL-Version/self-checkout/updateprice.php")
               .then(response => response.json())
               .then(updatedData => {
                   let newTotal = parseFloat(updatedData.total_price) || 0;
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .catch(error => console.error("Error updating total:", error));
 
               // Update cart count in icon
-              fetch("/COSC640 Project/self-checkout/get_cart_count.php")
+              fetch("/COSC640 Project/MYSQL-Version/self-checkout/get_cart_count.php")
               .then(response => response.json())
               .then(countData => {
                 if (countData.success) {
