@@ -1,7 +1,12 @@
+function redirectToPage(userType){
+  window.location.href = userType + "login.php";
+}
+
+
 console.log("Total Price: ", totalPrice);
             paypal.Buttons({
               createOrder: function(data, actions) {
-                return fetch("/COSC640_Project_Mongo/self-checkout/updateprice.php") // Fetch latest total
+                return fetch("public/self-checkout/updateprice.php") // Fetch latest total
                 .then(response => response.json())
                 .then(data => {
                   return actions.order.create({
@@ -17,7 +22,7 @@ console.log("Total Price: ", totalPrice);
               console.log("onApprove function triggered", data);
               return actions.order.capture().then(function(details) {
                 // Send transaction details to server for storage
-              fetch('/COSC640_Project_Mongo/self-checkout/save_transaction.php', {
+              fetch('public/self-checkout/save_transaction.php', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'

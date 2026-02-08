@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           $adminRoleId = new MongoDB\BSON\ObjectId('6807ee9f4ad193cfcb31d60c');
           $inventoryRoleId = new MongoDB\BSON\ObjectId('6807ee9f4ad193cfcb31d60e');
-          $checkoutRoleId = new MongoDB\BSON\ObjectId('6807ee9f4ad193cfcb31d60e');
+          $checkoutRoleId = new MongoDB\BSON\ObjectId('6807ee9f4ad193cfcb31d60d');
 
           //might need to change  to ObjectId
           $_SESSION['employee_ID'] = (string) $employee_id;

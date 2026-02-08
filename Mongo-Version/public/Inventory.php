@@ -63,6 +63,7 @@ require_once 'PHP/inventory_logic.php';
 </style>
 </head>
 <body>
+  <?php include 'employeeNav.html' ?>
 <div class="container">
     <h1>Inventory Management</h1>
 

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             let cartItemId = this.getAttribute("data-item-id");
 
-            fetch("/COSC640_Project_Mongo/self-checkout/remove_item.php", {
+            fetch("public/self-checkout/remove_item.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Remove the item from the UI
                     this.closest(".cart-item").remove();
 
-                    fetch("/COSC640_Project_Mongo/self-checkout/get_cart_count.php")
+                    fetch("public/self-checkout/get_cart_count.php")
                     .then(response => response.json())
                     .then(countData => {
                       if (countData.success) {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     })
                     .catch(err => console.error("Error fetching cart count:", err));
                     // Fetch the updated total price
-                    fetch("/COSC640_Project_Mongo/self-checkout/updateprice.php")
+                    fetch("public/self-checkout/updateprice.php")
                     .then(response => response.json())
                     .then(updatedData => {
                       console.log("Updated data from updateprice.php:", updatedData);
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function updateQuantity(itemId, action, controlElement) {
-      fetch("/COSC640_Project_Mongo/self-checkout/update_quantity.php", {
+      fetch("public/self-checkout/update_quantity.php", {
           method: "POST",
           headers: {
               "Content-Type": "application/json"
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
               controlElement.querySelector(".item-quantity").textContent = data.new_quantity;
 
               // Recalculate total
-              fetch("/COSC640_Project_Mongo/self-checkout/updateprice.php")
+              fetch("public/self-checkout/updateprice.php")
               .then(response => response.json())
               .then(updatedData => {
                   let newTotal = parseFloat(updatedData.total_price) || 0;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .catch(error => console.error("Error updating total:", error));
 
               // Update cart count in icon
-              fetch("/COSC640_Project_Mongo/self-checkout/get_cart_count.php")
+              fetch("public/self-checkout/get_cart_count.php")
               .then(response => response.json())
               .then(countData => {
                 if (countData.success) {

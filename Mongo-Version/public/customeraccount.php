@@ -8,9 +8,9 @@ $currentPage = 'customeraccount';
 <head>
     <meta charset="UTF-8">
     <title>Customer Account</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="customer-account-page">
+<body class = "account-layout">
   <?php include 'customerNav.php'; ?>
 
 <div class="account-container">

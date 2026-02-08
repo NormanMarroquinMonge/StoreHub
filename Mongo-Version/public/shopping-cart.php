@@ -8,13 +8,13 @@ $currentPage = 'shoppingcart';
 <head>
     <meta charset="UTF-8">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <script
               src="https://www.paypal.com/sdk/js?client-id=AZLdThVgKuNnC6d_NeMKwxmxxTq7sO24R544e63exxMpIDrfAfHWPxRsvCwuEsiP1XCwqxJU6-Biactt&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
               data-sdk-integration-source="developer-studio"
       ></script>
 </head>
-<body class = "shopping-cart-page">
+<body class = "shopping-cart-layout">
 <?php include 'customerNav.php'; ?>
 <div class="cart-container">
     <!-- Cart Items Section -->

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/dbConnect.php';
+require_once 'dbConnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fname = $_POST['fname'];

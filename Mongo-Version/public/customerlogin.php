@@ -7,10 +7,9 @@ require_once 'PHP/customer_login_logic.php';
 <head>
     <meta charset="utf-8">
     <title>Customer Login</title>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="center-page">
+<body class = "login-layout">
     <div class="login-container">
         <h2>Customer Login</h2>
 
@@ -40,6 +39,5 @@ require_once 'PHP/customer_login_logic.php';
             </a>
         </div>
     </div>
-  </div>
 </body>
 </html>

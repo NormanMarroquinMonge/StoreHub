@@ -8,7 +8,7 @@ $currentPage = 'produce';
     <meta charset="utf-8">
     <title>Shopping Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="JS/add-to-cart.js"></script>
 </head>
 <body>

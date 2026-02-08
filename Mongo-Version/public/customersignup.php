@@ -8,10 +8,9 @@
    <head>
      <meta charset="utf-8">
      <title>Customer Signup</title>
-      <link rel="stylesheet" href="CSS/styles.css">
+      <link rel="stylesheet" href="css/style.css">
    </head>
-   <body>
-     <div class="center-page">
+   <body class = "login-layout">
      <div class="login-container">
          <h2>Customer Signup</h2>
 
@@ -30,6 +29,5 @@
              </div>
          </form>
      </div>
-    </div>
    </body>
  </html>

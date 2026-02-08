@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/COSC640_Project_Mongo/PHP/add-to-cart.php", // The PHP file that handles adding to the cart
+            url: "public/PHP/add-to-cart.php", // The PHP file that handles adding to the cart
             data: { product_ID: product_ID },
             dataType: "json",
             success: function(response) {

@@ -174,7 +174,7 @@
     <?php
         include "employeeNav.html";
         echo "<br>";
-        include 'dbConnect.php';if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        include 'PHP/dbConnect.php';if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $number = $_POST['cart_ID'];
 
             $query = "SELECT * from cart_items where cart_ID = $number AND is_sold=0";
