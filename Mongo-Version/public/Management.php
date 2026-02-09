@@ -55,6 +55,7 @@ require_once 'PHP/management_logic.php';
     </style>
 </head>
 <body>
+  <?php include 'employeeNav.html' ?>
 <div class="container">
     <h1>Employee Management</h1>
 

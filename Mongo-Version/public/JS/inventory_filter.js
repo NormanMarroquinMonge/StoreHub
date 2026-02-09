@@ -11,9 +11,18 @@ messageBox.className = type === "success" ? 'message success' : 'message error';
 
 messageBox.style.display = 'block';
 
-setTimeout(() => {
-  messageBox.style.display = 'none';
-}, 4000); // Hide after 4 seconds
+requestAnimationFrame(() => {
+        messageBox.classList.add('show');
+    });
+
+    setTimeout(() => {
+            messageBox.classList.remove('show');
+
+            // 3. Wait for the CSS transition (0.5s) to finish before hiding display
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 500);
+        }, 1500);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

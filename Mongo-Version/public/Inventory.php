@@ -8,59 +8,7 @@ require_once 'PHP/inventory_logic.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management</title>
-    <link rel="stylesheet" href="CSS/employee_style.css">
-    <style>
-.action-form {
-    display: inline;
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-.action-form button {
-    margin: 0 5px 0 0; /* optional: little space between buttons */
-}
-#messageBox {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000; /* stay above everything */
-  max-width: 600px;
-  width: 90%;
-  padding: 15px;
-  border-radius: 8px;
-  font-size: 16px;
-  text-align: center;
-  display: none;
-  animation: fadeIn 0.5s;
-}
-#messageBox.success {
-  background-color:  #f8d7da;
-  color: #721c24;
-  border: 2px solid #36322c;
-}
-#messageBox.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 2px solid #36322c;
-}
-.cancel-btn {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.cancel-btn:hover {
-    background-color: darkred;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-</style>
+    <link rel="stylesheet" href="css/employee_style.css">
 </head>
 <body>
   <?php include 'employeeNav.html' ?>
@@ -151,7 +99,10 @@ require_once 'PHP/inventory_logic.php';
         </tr>
     </thead>
     <tbody id="inventoryBody">
-        <?php foreach ($inventoryItems as $item): ?>
+      <?php
+      if (isset($_GET['category'])):
+        foreach ($inventoryItems as $item):
+          ?>
             <tr>
                 <td><?= htmlspecialchars($item['product_info']['_id']) ?></td>
                 <td class="editable" data-field="name"><?= htmlspecialchars($item['product_info']['name']) ?></td>
@@ -169,7 +120,16 @@ require_once 'PHP/inventory_logic.php';
                     </form>
                 </td>
             </tr>
-        <?php endforeach; ?>
+            <?php
+            endforeach;
+        else:
+        ?>
+            <tr>
+                <td colspan="7" style="text-align:center; color: #888; padding: 40px;">
+                    Please select a category from the dropdown above to view inventory items.
+                </td>
+            </tr>
+        <?php endif; ?>
     </tbody>
 </table>
 </div>
