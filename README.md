@@ -53,7 +53,11 @@
 
 
 
-[Image of Relational Diagram]
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e0467b28-7e4a-4e5e-b9c9-f3a1306eee60" 
+       alt="StoreHub EER Diagram" 
+       style="background-color: white; padding: 10px; border-radius: 5px; width: 100%;">
+</p>
 
 
 <hr />
